@@ -1,9 +1,6 @@
-# UTS-stdt-
-
-# Jawaban Tugas Sistem Terdistribusi  
-CAP, BASE, GraphQL, dan Streaming Replication PostgreSQL
-
----
+# UTS-stdt
+## Nim :245410065
+## Nama : Nur ridhwan 
 
 # 1. Teorema CAP dan BASE
 
@@ -50,7 +47,7 @@ Klien hanya mengirim satu query, lalu GraphQL berkomunikasi dengan berbagai serv
 - Menggabungkan respons dari berbagai service menjadi satu hasil akhir.
 
 ## Diagram (Mermaid)
-
+    
 ```mermaid
 flowchart LR
     Client --> GQL[GraphQL Gateway]
@@ -64,3 +61,11 @@ flowchart LR
     S3 --> DB3[(DB Order)]
 
     GQL --> Response[Aggregated Response]
+
+```
+### No 3
+Pada sistem terdistribusi, Teorema CAP menyatakan bahwa sebuah sistem hanya dapat memaksimalkan dua dari tiga aspek: Consistency, Availability, dan Partition Tolerance. Ketika jaringan mengalami gangguan atau pemisahan (partition), pengembang dipaksa memilih antara memastikan data selalu konsisten atau memastikan layanan tetap tersedia. Di sisi lain, pendekatan BASE menekankan bahwa tidak semua sistem harus sangat konsisten seperti model ACID. BASE menerima bahwa sistem dapat bersifat eventually consistent selama performa dan ketersediaannya tetap tinggi untuk kebutuhan skala besar.
+
+Keduanya saling berkaitan karena BASE pada dasarnya merupakan filosofi desain yang lahir dari keterbatasan yang ditunjukkan oleh Teorema CAP. Ketika sebuah sistem memilih Availability dan Partition Tolerance, ia secara alami mendekati sifat BASE, yang lebih lentur terhadap inkonsistensi sementara. Ini membuat BASE menjadi strategi yang cocok untuk aplikasi berskala besar seperti media sosial, e-commerce, dan layanan global yang trafiknya tidak bisa diprediksi.
+
+Dalam penerapannya, sistem yang mengutamakan konsistensi kuat biasanya lebih cocok untuk transaksi keuangan atau aplikasi kritikal yang tidak mentoleransi perbedaan data. Sebaliknya, sistem dengan filosofi BASE digunakan ketika kecepatan, skalabilitas, dan toleransi gangguan lebih penting daripada konsistensi langsung. Dengan memahami hubungan CAP dan BASE, pengembang bisa menentukan kompromi mana yang paling rasional untuk kebutuhan sistem yang sedang dibangun.
